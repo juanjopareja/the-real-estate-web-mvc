@@ -23,6 +23,7 @@ class Router {
         if($function) {
             call_user_func($function, $this);
         } else {
+            // debug($_SERVER);
             echo "Página no encontrada";
         }
     }
