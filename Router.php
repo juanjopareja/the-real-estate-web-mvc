@@ -29,6 +29,12 @@ class Router {
     }
 
     public function render($view) {
-        include __DIR__ . "/views/$view.php";
+
+        ob_start();
+        include_once __DIR__ . "/views/$view.php";
+
+        $content = ob_get_clean();
+
+        include_once __DIR__ . "/views/layout.php";
     }
 }
