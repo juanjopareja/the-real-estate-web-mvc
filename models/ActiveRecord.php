@@ -44,7 +44,7 @@ class ActiveRecord {
         // Error message
         if($result) {
             // Redirect User
-            header('Location: ../index.php?result=1');
+            header('Location: ../admin?result=1');
         }
     }
 

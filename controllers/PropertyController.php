@@ -4,13 +4,16 @@ namespace Controllers;
 use MVC\Router;
 use Model\Property;
 use Model\Seller;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class PropertyController {
     public static function index(Router $router) {
 
         $properties = Property::all();
-        $result = null;
+        
+        // Show conditional message
+        $result = $_GET['result'] ?? null;
 
         $router->render('properties/admin', [
             'properties' => $properties,
@@ -23,13 +26,47 @@ class PropertyController {
         $property = new Property;
         $sellers = Seller::all();
 
+        // Error Messages
+        $errors = Property::getErrors();
+
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
-            
+
+            /** Create new instance **/ 
+            $property = new Property($_POST['property']);
+    
+            /** Files Upload */ 
+            // Generate Unique Name
+            $imageName = md5( uniqid( rand(), ) ) . ".jpg";
+    
+            // Set image
+            // Resize image Intervention
+            if($_FILES['property']['tmp_name']['image']) {
+                $image = Image::make($_FILES['property']['tmp_name']['image'])->fit(800,600);
+                $property->setImage($imageName);
+            }
+    
+            // Validation
+            $errors = $property->validate();
+    
+            if(empty($errors)) { 
+                // Create Folder
+                if(!is_dir(IMAGES_FOLDER)) {
+                    mkdir(IMAGES_FOLDER);
+                }
+    
+                // Save image into server
+                $image->save(IMAGES_FOLDER . $imageName);
+    
+                // Save into DB
+                $property->save();
+            }
+    
         }
         
         $router->render('properties/create', [
             'property' => $property,
-            'sellers' => $sellers
+            'sellers' => $sellers,
+            'errors' => $errors
         ]);
     }
 

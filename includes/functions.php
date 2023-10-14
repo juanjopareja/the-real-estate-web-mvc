@@ -2,7 +2,7 @@
 
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCTIONS_URL', __DIR__ . 'functions.php');
-define('IMAGES_FOLDER', __DIR__ . '/../images/');
+define('IMAGES_FOLDER', $_SERVER['DOCUMENT_ROOT'] . '/public/images/');
 
 function includeTemplate(string $name, bool $start = false) {
     include TEMPLATES_URL . "/$name.php";
