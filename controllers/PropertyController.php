@@ -11,7 +11,7 @@ class PropertyController {
     public static function index(Router $router) {
 
         $properties = Property::all();
-        
+
         // Show conditional message
         $result = $_GET['result'] ?? null;
 
@@ -70,7 +70,17 @@ class PropertyController {
         ]);
     }
 
-    public static function update() {
-        echo "Actualizar propiedad";
+    public static function update(Router $router) {
+        $id = validateOrRedirect('/admin');
+        $property = Property::find($id);
+        $sellers = Seller::all();
+
+        $errors = Property::getErrors();
+
+        $router->render('/properties/update', [
+            'property' => $property,
+            'errors' => $errors,
+            'sellers' => $sellers
+        ]);
     }
 }

@@ -40,7 +40,7 @@
                         <input type="submit" class="red-button-block" value="Eliminar">
                     </form>
 
-                    <a href="../admin/properties/update.php?id=<?php echo $property->id; ?>" class="yellow-button-block">Actualizar</a>
+                    <a href="/properties/update?id=<?php echo $property->id; ?>" class="yellow-button-block">Actualizar</a>
                 </td>
             </tr>
             <?php } ?>
