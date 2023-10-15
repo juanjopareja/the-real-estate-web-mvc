@@ -77,6 +77,38 @@ class PropertyController {
 
         $errors = Property::getErrors();
 
+        // Update Method POST
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        
+            // Attribute asign
+            $args = $_POST['property'];
+            
+            $property->synchronize($args);
+            
+            // Validation
+            $errors = $property->validate();
+           
+            /** Files Upload */ 
+            // Generate Unique Name
+            $imageName = md5( uniqid( rand(), ) ) . ".jpg";
+    
+            if($_FILES['property']['tmp_name']['image']) {
+                $image = Image::make($_FILES['property']['tmp_name']['image'])->fit(800,600);
+                $property->setImage($imageName);
+            }
+    
+            if(empty($errors)) {
+                if($_FILES['property']['tmp_name']['image']) {
+    
+                // Save image
+                $image->save(IMAGES_FOLDER . $imageName);
+                }
+            }
+    
+            $property->save();
+        }
+
         $router->render('/properties/update', [
             'property' => $property,
             'errors' => $errors,

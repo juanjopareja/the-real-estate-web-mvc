@@ -66,7 +66,7 @@ class ActiveRecord {
 
         if($result) {
             // Redirect User
-            header('Location: ../index.php?result=2');
+            header('Location: ../admin?result=2');
         }
     }
 
