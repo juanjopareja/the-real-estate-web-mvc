@@ -33,7 +33,7 @@
                 <td><img src="../images/<?php echo $property->image;?>" class="table-image" alt="hola"></td>
                 <td><?php echo $property->price; ?> €</td>
                 <td>
-                    <form method="POST" class="w-100">
+                    <form method="POST" class="w-100" action="/properties/delete">
                         <input type="hidden" name="id" value="<?php echo $property->id?>">    
                         <input type="hidden" name="type" value="property">    
 

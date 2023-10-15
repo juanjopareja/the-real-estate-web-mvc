@@ -76,7 +76,7 @@ class ActiveRecord {
 
         if($result) {
             $this->deleteImage();
-            header('location: ../admin/index.php?result=3');
+            header('location: ../admin?result=3');
         }
     }
 

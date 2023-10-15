@@ -115,4 +115,21 @@ class PropertyController {
             'sellers' => $sellers
         ]);
     }
+
+    public static function delete(Router $router) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+    
+            if($id) {
+    
+                $type = $_POST['type'];
+    
+                if(validateTypeContent($type)) {
+                    $property = Property::find($id);
+                    $property->delete(); 
+                }            
+            }
+        }
+    }
 }
