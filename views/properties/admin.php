@@ -73,7 +73,7 @@
                         <input type="submit" class="red-button-block" value="Eliminar">
                     </form>
 
-                    <a href="../admin/sellers/update.php?id=<?php echo $sel->id; ?>" class="yellow-button-block">Actualizar</a>
+                    <a href="/sellers/update?id=<?php echo $sel->id; ?>" class="yellow-button-block">Actualizar</a>
                 </td>
             </tr>
             <?php } ?>
