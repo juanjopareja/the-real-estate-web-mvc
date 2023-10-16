@@ -15,7 +15,6 @@ $router->get('/properties/update', [PropertyController::class, 'update']);
 $router->post('/properties/update', [PropertyController::class, 'update']);
 $router->post('/properties/delete', [PropertyController::class, 'delete']);
 
-$router->get('/admin', [SellerController::class, 'index']);
 $router->get('/sellers/create', [SellerController::class, 'create']);
 $router->post('/sellers/create', [SellerController::class, 'create']);
 $router->get('/sellers/update', [SellerController::class, 'update']);
