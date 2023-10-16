@@ -12,12 +12,15 @@ class PropertyController {
 
         $properties = Property::all();
 
+        $sellers = Seller::all();
+
         // Show conditional message
         $result = $_GET['result'] ?? null;
 
         $router->render('properties/admin', [
             'properties' => $properties,
-            'result' => $result
+            'result' => $result,
+            'sellers' => $sellers
         ]);
     }
 
