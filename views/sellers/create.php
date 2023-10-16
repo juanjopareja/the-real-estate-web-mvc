@@ -9,7 +9,7 @@
         </div>
     <?php } ?>
 
-    <form class="form" method="POST" action="../sellers/create.php">
+    <form class="form" method="POST" action="/sellers/create">
         <?php include 'form.php'; ?>
 
         <input type="submit" value="Registrar Vendedor/a" class="button green-button">

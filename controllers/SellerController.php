@@ -11,6 +11,20 @@ class SellerController {
 
         $seller = new Seller;
 
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        
+            // Create new instance
+            $seller = new Seller($_POST['seller']);
+    
+            // Validate empty fields
+            $errors = $seller->validate();
+    
+            // No errors
+            if(empty($errors)) {
+                $seller->save();
+            }
+        }
+
         $router->render('sellers/create', [
             'errors' => $errors,
             'seller' => $seller

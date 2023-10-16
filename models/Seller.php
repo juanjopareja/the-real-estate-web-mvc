@@ -35,10 +35,6 @@ class Seller extends ActiveRecord {
             self::$errors[] = "El teléfono es obligatorio";
         }
 
-        if(!preg_match('/[0-9]{10}/', $this->phone)) {
-            self::$errors[] = "Formato no válido";
-        }
-
         return self::$errors;
     }
 }
