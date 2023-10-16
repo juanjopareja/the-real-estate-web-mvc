@@ -9,7 +9,7 @@
         </div>
     <?php } ?>
 
-    <form class="form" method="POST" action="/sellers/update">
+    <form class="form" method="POST">
         <?php include 'form.php'; ?>
 
         <input type="submit" value="Guardar Cambios" class="button green-button">

@@ -38,6 +38,22 @@ class SellerController {
 
         // Get sellers data to update
         $seller = Seller::find($id);
+
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
+            // Assing values
+            $args = $_POST['seller'];
+    
+            // Sinchronize memory object
+            $seller->synchronize($args);
+    
+            // Validation
+            $errors = $seller->validate();
+    
+            if(empty($errors)) {
+                $seller->save();
+            }
+        }
         
         $router->render('sellers/update', [
             'errors' => $errors,
