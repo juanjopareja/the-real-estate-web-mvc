@@ -35,12 +35,12 @@
                     <img class="dark-mode-button" src="../build/img/dark-mode.svg" alt="dark mode">
 
                     <nav class="navigation">
-                        <a href="about.php">Nosotros</a>
-                        <a href="advertisements.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contact.php">Contacto</a>
+                        <a href="/about">Nosotros</a>
+                        <a href="/advertisements">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contact">Contacto</a>
                         <?php if($auth) { ?>
-                            <a href="/the-real-estate-web/close-session.php">Cerrar sesión</a>
+                            <a href="/close-session.php">Cerrar sesión</a>
                         <?php } ?>
                     </nav>
                 </div>

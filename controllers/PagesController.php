@@ -2,9 +2,19 @@
 
 namespace Controllers;
 
+use MVC\Router;
+use Model\Property;
+
 class PagesController {
-    public static function index() {
-        echo "desde el index";
+    public static function index(Router $router) {
+
+        $properties = Property::get(3);
+        $start = true; 
+        
+        $router->render('pages/index', [
+            'properties' => $properties,
+            'start' => $start
+        ]);
     }
 
     public static function about() {
