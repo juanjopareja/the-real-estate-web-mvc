@@ -31,8 +31,15 @@ class PagesController {
         ]);
     }
 
-    public static function property() {
-        echo "desde propiedad";
+    public static function property(Router $router) {
+
+        $id = validateOrRedirect('/properties');
+
+        $property = Property::find($id);
+        
+        $router->render('pages/property', [
+            'property' => $property
+        ]);
     }
 
     public static function blog() {

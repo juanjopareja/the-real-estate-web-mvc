@@ -12,7 +12,7 @@
     ?>
 
     <div class="right-align">
-        <a href="advertisements.html" class="green-button">Ver Todas</a>
+        <a href="/properties" class="green-button">Ver Todas</a>
     </div>
 </section>
 
