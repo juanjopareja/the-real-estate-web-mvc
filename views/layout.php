@@ -23,7 +23,7 @@
     <header class="header <?php echo $start ? 'start' : ''; ?>">
         <div class="container header-content">
             <div class="bar">
-                <a href="/the-real-estate-web/index.php">
+                <a href="public/index.php">
                     <img src="../build/img/logo.svg" alt="imagen logo">
                 </a>
 

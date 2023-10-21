@@ -17,8 +17,9 @@ class PagesController {
         ]);
     }
 
-    public static function about() {
-        echo "desde nosotros";
+    public static function about(Router $router) {
+        
+        $router->render('pages/about', []);
     }
 
     public static function properties() {
