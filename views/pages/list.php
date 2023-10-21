@@ -26,7 +26,7 @@
                 </li>
             </ul>
 
-            <a href="advertisement.php?id=<?php echo $property->id; ?>" class="yellow-button-block">Ver Propiedad</a>
+            <a href="/property?id=<?php echo $property->id; ?>" class="yellow-button-block">Ver Propiedad</a>
         </div><!-- .advertisements-content-->
     </div><!-- .advertisements -->
 

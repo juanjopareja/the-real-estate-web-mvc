@@ -22,8 +22,13 @@ class PagesController {
         $router->render('pages/about', []);
     }
 
-    public static function properties() {
-        echo "desde propiedades";
+    public static function properties(Router $router) {
+
+        $properties = Property::all();
+
+        $router->render('pages/properties', [
+            'properties' => $properties
+        ]);
     }
 
     public static function property() {

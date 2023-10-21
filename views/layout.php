@@ -36,7 +36,7 @@
 
                     <nav class="navigation">
                         <a href="/about">Nosotros</a>
-                        <a href="/advertisements">Anuncios</a>
+                        <a href="/properties">Anuncios</a>
                         <a href="/blog">Blog</a>
                         <a href="/contact">Contacto</a>
                         <?php if($auth) { ?>
