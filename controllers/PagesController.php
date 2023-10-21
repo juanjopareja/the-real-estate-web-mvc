@@ -42,12 +42,14 @@ class PagesController {
         ]);
     }
 
-    public static function blog() {
-        echo "desde blog";
+    public static function blog(Router $router) {
+
+        $router->render('pages/blog');
     }
 
-    public static function entry() {
-        echo "desde entrada";
+    public static function entry(Router $router) {
+        
+        $router->render('pages/entry');
     }
 
     public static function contact() {
