@@ -43,16 +43,21 @@ class PagesController {
     }
 
     public static function blog(Router $router) {
-
         $router->render('pages/blog');
     }
-
-    public static function entry(Router $router) {
-        
+    
+    public static function entry(Router $router) {   
         $router->render('pages/entry');
     }
+    
+    public static function contact(Router $router) {
+        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+            debug($_POST);
+        }
 
-    public static function contact() {
-        echo "desde contacto";
+        $router->render('pages/contact', [
+
+        ]);
+        
     }
 }
