@@ -53,6 +53,9 @@ class PagesController {
     
     public static function contact(Router $router) {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $answers = $_POST['contact'];
+
             // Create PHPMailer instance
             $mail = new PHPMailer();
 
@@ -75,7 +78,19 @@ class PagesController {
             $mail->CharSet = 'UTF-8';
 
             // Content define
-            $content = '<html><p>Tienes un nuevo mensaje</p></html>';
+            $content = '<html>';
+            $content .= '<p>Tienes un nuevo mensaje</p>';
+            $content .= '<p>Nombre: ' . $answers['name'] . ' </p>';
+            $content .= '<p>E-mail: ' . $answers['email'] . ' </p>';
+            $content .= '<p>Teléfono: ' . $answers['phone'] . ' </p>';
+            $content .= '<p>Mensaje: ' . $answers['message'] . ' </p>';
+            $content .= '<p>Vende o Compra: ' . $answers['type'] . ' </p>';
+            $content .= '<p>Precio o Presupuesto: ' . $answers['price'] . ' €</p>';
+            $content .= '<p>Contactado por: ' . $answers['contact'] . ' </p>';
+            $content .= '<p>Fecha de contacto: ' . $answers['date'] . ' </p>';
+            $content .= '<p>Hora de contacto: ' . $answers['hour'] . ' </p>';
+            $content .= '</html>';
+
             $mail->Body = $content;
             $mail->AltBody = 'Esto es texto alternativo sin HTML';
 
